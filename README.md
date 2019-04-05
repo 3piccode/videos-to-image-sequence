@@ -30,7 +30,7 @@ Run the `generate-images.sh` script.
 
 ## Purpose
 
-Imagine you have a nature/security/observation camera that automatically splits up video files. Maybe the video files are split every n seconds or when they reach n size.
+Imagine you have a nature/security/observation camera that automatically splits up video files. Maybe the video files are split every `n` seconds or when they reach `n` size.
 
 ```
 video-2018-12-25-001.mp4
@@ -44,7 +44,7 @@ video-2018-12-25-008.mp4
 etc
 ```
 
-We want to create a sequence of images showing every nth second of each video. For hour example, let's say every `15` seconds. So if the first video is an hour long, we'll end up with `3600 seconds / 15 seconds = 240 images` for that video. And if we had `10` videos that means our final result would be `240 images * 10 videos = 2400 images`.
+We want to create a sequence of images showing every nth second of each video. For our example, let's say every `15` seconds. So if the first video is an hour long, we'll end up with `3600 seconds / 15 seconds = 240 images` for that video. And if we had `10` videos that means our final result would be `240 images * 10 videos = 2400 images`.
 
 The image sequence will be named in a way that spans all the videos so we have one continuous set of images across every video segment/clip.
 
