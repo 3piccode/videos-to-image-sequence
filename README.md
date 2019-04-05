@@ -4,7 +4,7 @@
 
 On Linux install the appropriate `ffmpeg` package for your distribution.
 
-On Windows download the [zeranoe](https://ffmpeg.zeranoe.com/builds/) build using the default options. Simply click the `Download Build` button. Once downloaded, extract `ffmpeg.exe` and `ffprobe.exe` from the `bin` directory.
+On Windows download the [zeranoe](https://ffmpeg.zeranoe.com/builds/) build using the default options. Simply click the `Download Build` button. Once downloaded, extract `ffmpeg.exe` from the `bin` directory.
 
 ## Run
 
@@ -12,7 +12,7 @@ On Windows download the [zeranoe](https://ffmpeg.zeranoe.com/builds/) build usin
 
 Follow the instructions above to retrieve `ffmpeg` binaries.
 
-Download `generate-images.bat` from this repository. Put `ffmpeg.exe` and `ffprobe.exe` in the _same directory_ as `generate-images.bat`.
+Download `generate-images.bat` from this repository. Put `ffmpeg.exe` in the _same directory_ as `generate-images.bat`.
 
 Edit `generate-images.bat` as needed. Change the variables as needed that indicate where the source videos are, what the interval should be, and where the output images should go.
 

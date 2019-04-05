@@ -20,7 +20,6 @@ do
 done
 
 total=$(ls ${tmp_dir} | wc -l)
-mkdir -p "${output_dir}"
 
 # A little gross that we have to rename all the files in sequence as a post-step,
 # but also much faster than naming/grabbing each still image individually.

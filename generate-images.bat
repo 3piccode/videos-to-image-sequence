@@ -8,17 +8,26 @@ set interval=15
 set output_dir=C:\Users\will\Downloads\generated-images
 
 if not exist "%output_dir%" mkdir "%output_dir%"
+set tmp_dir=%TEMP%\%RANDOM%
+if not exist "%tmp_dir%" mkdir "%tmp_dir%"
 
-set /a COUNT=0
+set /a COUNT=1
 for %%F in ("%video_dir%\*.mp4") do (
-    echo "ok"
-    for /F "tokens=*" %%F in ('ffprobe.exe -v error -show_entries "format=duration" -of "default=noprint_wrappers=1:nokey=1" "%%~F"') do (
-        set duration=%%F
-    )
+    REM Use fps to seek and print all images in a single run. Much slower if we were
+    REM to manually re-seek and manually try and get each screenshot ourselves.
+    ffmpeg.exe -i "%%~F" -vf fps=1/%INTERVAL% "%tmp_dir%\!COUNT!-img%%08d.jpg"
+    set /a COUNT += 1
+)
 
-    for /L %%I in (0, %interval%, !duration!) do (
-        set /a COUNT += 1
-        ffmpeg.exe -y -i "%video_dir%\%%~nF%%~xF" -ss %%I -vframes 1 "%output_dir%\img!COUNT!.jpg"
-    )
+for /f %%A in ('dir %tmp_dir% ^| find "File(s)"') do set total=%%A
+
+echo "total %total%"
+
+REM A little gross that we have to rename all the files in sequence as a post-step,
+REM but also much faster than naming/grabbing each still image individually.
+set /a COUNT=1
+for %%F in ("%tmp_dir%\*.jpg") do (
+    move "%%~F" "%output_dir%\img!COUNT!.jpg"
+    set /a COUNT += 1
 )
 endlocal
