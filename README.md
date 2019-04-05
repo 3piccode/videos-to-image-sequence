@@ -20,7 +20,13 @@ Double click `generate-images.bat` to run the script.
 
 ### Linux
 
-TODO
+Follow the instructions above to install `ffmpeg` for your distribution.
+
+Download `generate-images.sh` from this repository.
+
+Edit `generate-images.sh` as needed. Change the variables as needed that indicate where the source videos are, what the interval should be, and where the output images should go.
+
+Run the `generate-images.sh` script.
 
 ## Purpose
 
